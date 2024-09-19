@@ -16,9 +16,10 @@ Uma aplicação Rust para reprodução e gerenciamento de arquivos de música. I
 - Trash
 
 ## Uso
-Para executar a aplicação, certifique-se de que as dependências necessárias estejam instaladas e use o seguinte comando:
+Para executar a aplicação, certifique-se de que as dependências necessárias estejam instaladas e use o seguinte comando: cargo run 
 
-```bash
-cargo run
 
 Após executar o comando cargo run, uma pasta target será criada. Dentro dessa pasta, você encontrará o executável chamado music-player. No Windows, o executável terá a extensão .exe, e no Linux, será um arquivo executável .sh. Você pode executar o programa a partir do console para interagir com a aplicação.
+
+```bash
+cargo run 
