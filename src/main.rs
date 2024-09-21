@@ -41,7 +41,7 @@ fn main() -> io::Result<()> {
     });
 
     let input_thread = thread::spawn(move || {
-        input_lopp(tx);
+        input_loop(tx);
     });
 
     playback_thread.join().unwrap();
@@ -122,7 +122,7 @@ fn playback_loop(
     }
 }
 
-fn input_lopp(tx: mpsc::Sender<String>) {
+fn input_loop(tx: mpsc::Sender<String>) {
     loop {
         let user_input = get_user_input();
         let command = match user_input.as_str() {
@@ -150,7 +150,14 @@ fn play_music(file_path: &PathBuf, sink: &mut Sink) -> io::Result<()> {
 }
 
 fn get_user_input() -> String {
-    println!("Digite 'd' próximo, 'a' anterior, 'w' tocar, 's' pausar, 'L' deletar ou 'q' sair: ");
+    println!("Comandos disponíveis:");
+    println!("  D - Próximo");
+    println!("  A - Anterior");
+    println!("  W - Tocar");
+    println!("  S - Pausar");
+    println!("  L - Deletar música");
+    println!("  Q - Sair");
+
     io::stdout().flush().expect("Falha ao limpar o buffer");
     let mut input = String::new();
     io::stdin()
